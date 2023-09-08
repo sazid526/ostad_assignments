@@ -22,65 +22,32 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blue,
         title: Center(
             child: Text(
-          "Home",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-        )),
-        actions: [
-          Icon(
-            Icons.search,
-          ),
-          SizedBox(
-            width: 13,
-          ),
-        ],
-        leading: Icon(
-          Icons.home,
-        ),
-        elevation: 70,
+              "Profile",
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
+            )),
+
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Image.asset("assets/images/profile.png",height: 80,),
           Center(
               child: Text(
-            "This is mod 5 Assignment",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            "Jhon Doe",
+            style: TextStyle(fontWeight: FontWeight.normal, fontSize: 25,color: Colors.green),
           )),
+          Center(
+              child: Text(
+                " Flutter Bactch 4",
+                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20,color: Colors.blue),
+              )),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
-          RichText(
-              text: TextSpan(children: [
-            TextSpan(
-                text: "My",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.pinkAccent)),
-            TextSpan(
-                text: " phone",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.blue)),
-            TextSpan(
-                text: " name",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.purpleAccent)),
-            TextSpan(
-                text: " Your phone name",
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.normal,
-                    color: Colors.orangeAccent)),
-          ]))
         ],
       ),
     );
