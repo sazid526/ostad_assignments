@@ -25,31 +25,41 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blue,
         title: Center(
             child: Text(
-              "Profile",
+              "My Shopping List",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
             )),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Icon(Icons.shopping_cart,size: 30,),
+          )
+        ],
 
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
         children: [
-          Image.asset("assets/images/profile.png",height: 80,),
-          Center(
-              child: Text(
-            "Jhon Doe",
-            style: TextStyle(fontWeight: FontWeight.normal, fontSize: 25,color: Colors.green),
-          )),
-          Center(
-              child: Text(
-                " Flutter Bactch 4",
-                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20,color: Colors.blue),
-              )),
-          SizedBox(
-            height: 5,
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Person"),
+          ),
+          ListTile(
+            leading: Icon(Icons.call),
+            title: Text("Call"),
+          ),
+          ListTile(
+            leading: Icon(Icons.notification_important),
+            title: Text("Notification"),
+          ),
+          ListTile(
+            leading: Icon(Icons.business_center),
+            title: Text("Business"),
           ),
         ],
-      ),
+      )
     );
   }
 }
