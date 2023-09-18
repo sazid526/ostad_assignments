@@ -37,30 +37,32 @@ class Home extends StatelessWidget {
       ),
       body:Column(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                    child: Text("Welcome To My Photo Gallery!",style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                    ),)
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 7),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      hintText: "Search for photos...",
-                      enabledBorder: OutlineInputBorder(
-
-                      )
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      child: Text("Welcome To My Photo Gallery!",style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                      ),)
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 7),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Search for photos...",
+                        enabledBorder: OutlineInputBorder(
+
+                        )
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             flex: 18,
