@@ -31,7 +31,7 @@ class PortraitView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("port"),
+        title: Text("portrait"),
       ),
       body: ListView.builder(
         itemCount: 10,
@@ -56,7 +56,7 @@ class LandscapeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("land"),
+        title: Text("landScape"),
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
