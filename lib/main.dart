@@ -31,19 +31,50 @@ class PortraitView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("portrait"),
+        title: Text("port"),
       ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Image.network(
-              'https://www.pexels.com/photo/double-exposure-of-a-woman-and-tagetes-flowers-13750614/',
-              height: 150,
-              width: 150,
+      body: Column(
+        children: [
+          SizedBox(height: 5,),
+          CircleAvatar(
+            radius: 130,
+            backgroundImage: NetworkImage("https://images.pexels.com/photos/18427797/pexels-photo-18427797/free-photo-of-light-sea-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+          ),
+          SizedBox(height: 10,),
+          Text("John Doe",style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold
+          ),),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text("simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Doe",style: TextStyle(
+              fontSize: 16,
+            ),),
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 2,
+              ),
+              itemCount: 9,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    child: Image.network(
+                      'https://images.pexels.com/photos/18427797/pexels-photo-18427797/free-photo-of-light-sea-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',fit: BoxFit.cover,
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
+                );
+              },
             ),
-          );
-        },
+          ),
+
+        ],
       ),
     );
   }
@@ -56,22 +87,56 @@ class LandscapeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("landScape"),
+        title: Text("land"),
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Image.network(
-              'https://www.pexels.com/photo/double-exposure-of-a-woman-and-tagetes-flowers-13750614/',
-              height: 150,
-              width: 150,
+      body: Row(
+        children: [
+          SizedBox(width: 5,),
+          CircleAvatar(
+            radius: 130,
+            backgroundImage: NetworkImage("https://images.pexels.com/photos/18427797/pexels-photo-18427797/free-photo-of-light-sea-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+          ),
+          SizedBox(width: 10,),
+          Expanded(
+            child: Column(
+              children: [
+                Text("John Doe",style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold
+                ),),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text("simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Doe",style: TextStyle(
+                    fontSize: 16,
+                  ),),
+                ),
+                Expanded(
+                  child: GridView.builder(
+                    gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 2,
+                    ),
+                    itemCount: 9,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          child: Image.network(
+                            'https://images.pexels.com/photos/18427797/pexels-photo-18427797/free-photo-of-light-sea-dawn-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',fit: BoxFit.cover,
+                            height: 50,
+                            width: 50,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          );
-        },
+          )
+
+        ],
       ),
     );
   }
