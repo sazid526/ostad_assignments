@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "title": "Sport Dress",
       "color": "Black",
       "size": "M",
-      "price": 43,
+      "price": 40,
       "photo": "assets/images/photoThree.png",
       "quantity": 1,
     }
