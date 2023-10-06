@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "size": "L",
       "price": 51,
       "photo": "assets/images/photo.png",
-      "quantity": 1
+      "quantity": 0
     },
     {
       "title": "T-Shirt",
@@ -23,18 +23,26 @@ class _HomeScreenState extends State<HomeScreen> {
       "size": "L",
       "price": 30,
       "photo": "assets/images/photoTwo.png",
-      "quantity": 1
+      "quantity": 0
 
     },
     {
       "title": "Sport Dress",
       "color": "Black",
       "size": "M",
-      "price": 43,
+      "price": 40,
       "photo": "assets/images/photoThree.png",
-      "quantity": 1,
-    }
+      "quantity": 0,
+    },
   ];
+
+  double totalPrice = 0;
+
+  MySnackBar(massage,context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(massage))
+    );
+  }
 
 
   @override
@@ -54,10 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 40,
+              height: 20,
             ),
-            Expanded(
-              flex: 10,
+            Container(
+              width: double.infinity,
               child: Text(
                 "My Bag",
                 style: TextStyle(
@@ -66,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 20,),
             Expanded(
               flex: 90,
               child: ListView.builder(
@@ -118,8 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: IconButton(
                                                   onPressed: () {
                                                     setState(() {
-                                                      if(ItemList[index]["quantity"] > 1){
+                                                      if(ItemList[index]["quantity"] > 0){
                                                         ItemList[index]["quantity"]--;
+                                                        totalPrice -= ItemList[index]["price"];
                                                       }
                                                     });
                                                   },
@@ -137,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   onPressed: () {
                                                     setState(() {
                                                       ItemList[index]["quantity"]++;
+                                                      totalPrice += ItemList[index]["price"];
                                                     });
                                                   },
                                                   icon: Icon(Icons.add)),
@@ -161,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Total amount: "),
-                Text("0\$")
+                Text("$totalPrice\$")
               ],
             ),
             SizedBox(height: 15,),
@@ -169,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
               width: double.infinity,
               height: 40,
               child: ElevatedButton(onPressed: (){
-
+                MySnackBar("Congratuation! You Buy ${totalPrice}\$ amount of Product", context);
               },
                   child: Text("CHECK OUT"),
                 style: ElevatedButton.styleFrom(
