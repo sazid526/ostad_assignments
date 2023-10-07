@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
       "price": 20,
       "photo": "assets/images/photoTwo.png",
       "quantity": 0
-
     },
     {
       "title": "Sport Dress",
@@ -85,86 +84,90 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: double.infinity,
                       child: Card(
                           child: Container(
-                        child: Row(
-                          children: [
-                            Image(image: AssetImage(ItemList[index]["photo"])),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          ItemList[index]["title"],
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Icon(Icons.more_vert)
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                            "Color: ${ItemList[index]["color"]}"),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text("Size: ${ItemList[index]["size"]}"),
-                                      ],
-                                    ),
-
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                            child: Row(
+                              children: [
+                                Image(image: AssetImage(ItemList[index]["photo"])),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
                                       children: [
                                         Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Card(
-                                              child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      if(ItemList[index]["quantity"] > 0){
-                                                        ItemList[index]["quantity"]--;
-                                                        totalPrice -= ItemList[index]["price"];
-                                                      }
-                                                    });
-                                                  },
-                                                  icon: Icon(Icons.remove)),
-                                              shape: CircleBorder(),
+                                            Text(
+                                              ItemList[index]["title"],
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                            Padding(
-                                              padding: const EdgeInsets.all(8.0),
-                                              child: Text(ItemList[index]["quantity"].toString(),style: TextStyle(
-                                                fontSize: 20,
-                                              ),),
-                                            ),
-                                            Card(
-                                              child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      ItemList[index]["quantity"]++;
-                                                      totalPrice += ItemList[index]["price"];
-                                                    });
-                                                  },
-                                                  icon: Icon(Icons.add)),
-                                              shape: CircleBorder(),
-                                            )
+                                            Icon(Icons.more_vert)
                                           ],
                                         ),
-                                        Text("${ItemList[index]["price"] * ItemList[index]["quantity"]}\$")
+                                        Row(
+                                          children: [
+                                            Text(
+                                                "Color: ${ItemList[index]["color"]}"),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Text("Size: ${ItemList[index]["size"]}"),
+                                          ],
+                                        ),
+
+                                        Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Card(
+                                                  child: IconButton(
+                                                      onPressed: () {
+
+                                                        setState(() {
+                                                          if(ItemList[index]["quantity"] > 0){
+                                                            ItemList[index]["quantity"]--;
+                                                            totalPrice -= ItemList[index]["price"];
+                                                            ;
+                                                          }
+                                                        });
+                                                      },
+                                                      icon: Icon(Icons.remove)),
+                                                  shape: CircleBorder(),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Text(ItemList[index]["quantity"].toString(),style: TextStyle(
+                                                    fontSize: 20,
+                                                  ),),
+                                                ),
+                                                Card(
+                                                  child: IconButton(
+                                                      onPressed: () {
+
+                                                        setState(() {
+                                                          ItemList[index]["quantity"]++;
+                                                          totalPrice += ItemList[index]["price"];
+
+                                                        });
+                                                      },
+                                                      icon: Icon(Icons.add)),
+                                                  shape: CircleBorder(),
+                                                )
+                                              ],
+                                            ),
+                                            Text("${ItemList[index]["price"] * ItemList[index]["quantity"]}\$")
+                                          ],
+                                        )
                                       ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )),
                     );
                   }),
             ),
@@ -182,11 +185,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ElevatedButton(onPressed: (){
                 MySnackBar("Congratuation! You Buy ${totalPrice}\$ amount of Product", context);
               },
-                  child: Text("CHECK OUT"),
+                child: Text("CHECK OUT"),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))
+                      borderRadius: BorderRadius.all(Radius.circular(30))
                   ),
                 ),
               ),
