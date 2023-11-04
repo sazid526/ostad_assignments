@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:ostad_assignments/homeScreen.dart';
+import 'package:ostad_assignments/photo_gallery_screen.dart';
 
-
-void main() {
-  runApp(const MyApp());
+void main(){
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
-      debugShowCheckedModeBanner: false,
-
+      home: PhotoGalleryScreen(),
     );
   }
 }
